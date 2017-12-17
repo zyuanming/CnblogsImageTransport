@@ -88,7 +88,9 @@ class ViewController: UIViewController {
 
     private func getImageYear(file: URL) -> String {
         let fileName = file.pathComponents.last!
-        return fileName.substring(to: fileName.index(fileName.startIndex, offsetBy: 4))
+//        return fileName.substring(to: fileName.index(fileName.startIndex, offsetBy: 4))
+        let startIndex = fileName.index(fileName.startIndex, offsetBy: 4)
+        return String(fileName[startIndex...])
     }
 
     private func getImageMonthAndDay(file: URL) -> String {
@@ -96,7 +98,8 @@ class ViewController: UIViewController {
         let startIndex = fileName.index(fileName.startIndex, offsetBy: 5)
         let endIndex = fileName.index(fileName.startIndex, offsetBy: 10)
         let range = startIndex..<endIndex
-        return fileName.substring(with: range)
+//        return fileName.substring(with: range)
+        return String(fileName[range])
     }
 
     private func getImageIndex(monthAndDay: String, year: String) -> Int {
